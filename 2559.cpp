@@ -3,24 +3,18 @@
 using namespace std;
 
 vector<int> temp;
-int n, k, a, current_sum;
+int p_sum[100004];
+int n, k, a, current_sum, max_sum = -10000004;
 int main() {
   cin >> n >> k;
-  for(int i = 0; i < n; i++) {
+  for(int i = 1; i <= n; i++) {
     cin >> a;
-    temp.push_back(a);
+    p_sum[i] = p_sum[i - 1] + a;
   }
-  int initial_sum = 0;
-  for(int j = 0; j < k; j++) {
-    initial_sum += temp[j];
-  }
-  int max_sum = initial_sum;
-  current_sum = initial_sum;
-  for(int i = 1; i <= temp.size() - k; i++) { 
-    current_sum = current_sum - temp[i - 1] + temp[i + k - 1];
-    if (max_sum < current_sum) {
-      max_sum = current_sum;
-    }
+  
+  for(int i = k; i <= n; i++) { 
+    current_sum = p_sum[i] - p_sum[i - k];
+    if (current_sum > max_sum) max_sum = current_sum;
   }
   cout << max_sum;
 }

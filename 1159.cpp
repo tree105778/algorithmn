@@ -3,7 +3,7 @@
 using namespace std;
 
 int n, idx;
-string s;
+string s, ret;
 int alphabet[26];
 int main() {
   cin >> n;
@@ -12,11 +12,9 @@ int main() {
     int idx = s.front() - 'a';
     alphabet[idx]++;
   }
-  auto idx = find_if(alphabet, alphabet + 26, [](int n) { return n >= 5; });
-  if (idx == end(alphabet)) cout << "PREDAJA" << '\n';
-  else {
-    for(int i = 0; i < 26; i++) {
-      if (alphabet[i] >= 5) cout << (char) (i + 'a');
-    }
+  for(int i = 0; i < 26; i++) {
+    if (alphabet[i] >= 5) ret += alphabet[i];
   }
+  if (ret.size()) cout << ret << '\n';
+  else cout << "PREDAJA" << '\n';
 }

@@ -31,22 +31,36 @@ int main() {
 }
 */
 
-int a[9];
+int a[9], totalSum;
 vector<int> v;
+pair<int, int> ret;
+
+void print() {
+  for(int i = 0; i < 9; i++) cout << a[i] << " ";
+  cout << '\n';
+}
+
+void makePermutaion(int n, int r, int depth) {
+  if (depth == r) {
+    print();
+    return;
+  }
+  for(int i = depth; i < n; i++) {
+    swap(a[i], a[depth]);
+    makePermutaion(n, r, depth + 1);
+    swap(a[i], a[depth]);
+  }
+}
+
 void solve() {
   for(int i = 0; i < 9; i++) {
-    cin >> a[i];
+    cin >> a[i]; totalSum += a[i];
   }
   sort(a, a + 9);
-  int totalSum = accumulate(a, a + 9, 0);
   for(int i = 1; i < 9; i++) {
     for(int j = 0; j < i; j++) {
       if (totalSum - a[i] - a[j] == 100) {
-        for(int k = 0; k < 9; k++) {
-          if (k != j && k != i) {
-            v.push_back(a[k]);
-          }
-        }
+        ret = {i, j};
         for(int i : v) cout << i << '\n';
         return;
       }
@@ -55,6 +69,7 @@ void solve() {
 }
 
 int main() {
-  solve();
+  for(int i = 0; i < 9; i++) cin >> a[i];
+  makePermutaion(9, 7, 0);
   return 0;
 }

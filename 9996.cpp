@@ -52,8 +52,9 @@ int n;
 string pattern, s;
 int main() {
   cin >> n >> pattern;
-  string first_slice = pattern.substr(0, pattern.find("*", 0));
-  string last_slice = pattern.substr(pattern.find("*", 0) + 1);
+  int pos = pattern.find("*", 0);
+  string first_slice = pattern.substr(0, pos);
+  string last_slice = pattern.substr(pos + 1);
   for(int i = 0; i < n; i++) {
     cin >> s;
     if (s.size() < first_slice.size() + last_slice.size()) {

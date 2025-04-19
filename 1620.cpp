@@ -3,16 +3,16 @@
 using namespace std;
 
 //  너무 어렵다 별표다!! 맵을 활용할 생각을 못한 게 폐인인듯 하다.
-int n, m;
+int n, m, k;
 unordered_map<string, int> um;
 vector<string> pocketmon;
 string s;
-bool isNumeric(const string& str) {
-  for (char c: str) {
-    if (isdigit(c) == 0) return false;
-  }
-  return true;
-}
+// bool isNumeric(const string& str) {
+//   for (char c: str) {
+//     if (isdigit(c) == 0) return false;
+//   }
+//   return true;
+// }
 
 int main() {
   ios_base::sync_with_stdio(false);
@@ -29,10 +29,8 @@ int main() {
   }
   for(int i = 0; i < m; i++) {
     cin >> s;
-    if (isdigit(s.front())) {
-      int num = stoi(s);
-      cout << pocketmon[num - 1] << '\n';
-    } else {
+    if (k = atoi(s.c_str())) cout << pocketmon[k] << '\n';
+    else {
       cout << um[s] << '\n';
     }
   }

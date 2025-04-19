@@ -16,5 +16,14 @@ int main() {
       else str[i] = idx - 13 + 'a';
     }
   }
+  // for(int i = 0; i < str.size(); i++) {
+  //   if (s[i] >= 65 && s[i] < 97) {
+  //     if (s[i] + 13 > 90) s[i] = s[i] + 13 - 26;
+  //     else s[i] += 13;
+  //   } else if (s[i] >= 97 && s[i] <= 122) {
+  //     if (s[i] + 13 > 122) s[i] = s[i] + 13 - 26;
+  //     else s[i] += 13;
+  //   }
+  // }
   cout << str;
 }
