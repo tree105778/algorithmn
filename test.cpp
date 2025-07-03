@@ -2,22 +2,12 @@
 
 using namespace std;
 
-int n;
-string s;
-vector<string> v;
-
-bool compare(string& s1, string& s2) {
-  if (s1.size() != s2.size()) return s1.size() - s2.size();
-  return s1 < s2;
-}
-
 int main() {
-  char c;
-  string s = "";
-  for(int i = 0; i < 5; i++) {
-    cin >> c;
-    s += c;
-  }
+    int arr[10] = {1, };
 
-  cout << s;
+    for(int i = 0; i < 10; i++) {
+        cout << arr[i] << ' ';
+    }
+
+    return 0;
 }
