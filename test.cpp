@@ -2,12 +2,26 @@
 
 using namespace std;
 
-int main() {
-    int arr[10] = {1, };
+vector<int> v;
 
-    for(int i = 0; i < 10; i++) {
-        cout << arr[i] << ' ';
+int N, M;
+void combi(int n) {
+    if (v.size() == M) {
+        for(auto& i : v) {
+            cout << i << ' ';
+        }
+        cout << '\n';
+        return;
     }
 
-    return 0;
+    for(int i = n; i < N; i++) {
+        v.push_back(i);
+        combi(i + 1);
+        v.pop_back();
+    }
+}
+
+int main() {
+    cin >> N >> M;
+    combi(0);
 }
