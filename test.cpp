@@ -2,26 +2,22 @@
 
 using namespace std;
 
-vector<int> v;
+const int n = 4;
+string a[4] = {"사과", "딸기", "포도", "배"};
 
-int N, M;
-void combi(int n) {
-    if (v.size() == M) {
-        for(auto& i : v) {
-            cout << i << ' ';
-        }
-        cout << '\n';
-        return;
+string go(int num) {
+    string ret = "";
+    for(int i = 0; i < n; i++) {
+        if (num & (1 << i)) ret += (a[i] + " ");
     }
 
-    for(int i = n; i < N; i++) {
-        v.push_back(i);
-        combi(i + 1);
-        v.pop_back();
-    }
+    return ret;
 }
 
 int main() {
-    cin >> N >> M;
-    combi(0);
+    for(int i = 0; i < (1 << n); i++) {
+        cout << go(1 | i) << '\n';
+    }
+
+    return 0;
 }
