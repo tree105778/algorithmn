@@ -2,10 +2,10 @@
 
 using namespace std;
 
-string a, b;
-char ch;
+int a, b;
 int main() {
-    ch = 'A' + 25;
+  cin >> a >> b;
+  cout << a * b;
 
-    cout << ch;
+  return 0;
 }
