@@ -11,7 +11,7 @@ for line in input_data:
   for i in line:
     if i in "([":
       dq.append(i)
-    elif line in matching and (not dq or dq.pop() != matching[i]):
+    elif i in matching and (not dq or dq.pop() != matching[i]):
       flag = True
       break
   if dq or flag:
